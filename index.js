@@ -3,8 +3,10 @@ const path = require("path");
 
 const { open } = require("sqlite");
 const sqlite3 = require("sqlite3");
+const cors = require("cors");
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 const db_path = path.join(__dirname, "goodreads.db");
 
@@ -32,9 +34,8 @@ app.get("/books/", async (request, response) => {
         SELECT 
 	        *
         FROM 
-	        book
-       ORDER BY 
-        book_id;`;
+            book
+       ORDER BY book_id;`;
   const get_details = await db.all(getBooksQuery);
   response.send(get_details);
 });

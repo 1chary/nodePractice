@@ -1,5 +1,9 @@
 GET http://localhost:3000/books/
 
+### Access the url using query parameters 
+
+GET http://localhost:3000/books/?limit=5&offset=0&search_input=potter&order_by=price&order=ASC
+
 
 ### Access a book using id 
 
@@ -36,3 +40,4 @@ Content-Type: "application/json"
 ### Deleting a book api 
 
 DELETE http://localhost:3000/books/45
+
